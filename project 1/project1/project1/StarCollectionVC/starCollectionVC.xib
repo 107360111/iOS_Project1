@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="starCollectionVC" customModule="project1" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Fmb-5A-J2Z" customClass="starCollectionVC" customModule="project1" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="601" height="600"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="601" height="600"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0jA-f8-K1Y">
+                        <rect key="frame" x="0.0" y="0.0" width="601" height="600"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gsI-n4-BLe">
+                                <rect key="frame" x="10" y="10" width="581" height="580"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gsI-n4-BLe" firstAttribute="leading" secondItem="0jA-f8-K1Y" secondAttribute="leading" constant="10" id="4Hu-kN-iJX"/>
+                            <constraint firstAttribute="bottom" secondItem="gsI-n4-BLe" secondAttribute="bottom" constant="10" id="7pI-tW-P8b"/>
+                            <constraint firstAttribute="trailing" secondItem="gsI-n4-BLe" secondAttribute="trailing" constant="10" id="RdY-4R-IS8"/>
+                            <constraint firstItem="gsI-n4-BLe" firstAttribute="top" secondItem="0jA-f8-K1Y" secondAttribute="top" constant="10" id="qEh-AN-we8"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="tzH-Mp-Kmd"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="0jA-f8-K1Y" secondAttribute="trailing" id="93N-Yv-8vs"/>
+                <constraint firstItem="0jA-f8-K1Y" firstAttribute="top" secondItem="Fmb-5A-J2Z" secondAttribute="top" id="M07-1n-u7p"/>
+                <constraint firstItem="0jA-f8-K1Y" firstAttribute="leading" secondItem="Fmb-5A-J2Z" secondAttribute="leading" id="UC1-g9-l4i"/>
+                <constraint firstAttribute="bottom" secondItem="0jA-f8-K1Y" secondAttribute="bottom" id="tWV-2e-idk"/>
+            </constraints>
+            <size key="customSize" width="602" height="520"/>
+            <connections>
+                <outlet property="star" destination="gsI-n4-BLe" id="x7U-4p-Z7U"/>
+            </connections>
+            <point key="canvasLocation" x="289.85507246376812" y="131.25"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
