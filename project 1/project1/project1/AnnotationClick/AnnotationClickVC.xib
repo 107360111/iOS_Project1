@@ -82,15 +82,7 @@
                 <constraint firstItem="0BG-jG-Vet" firstAttribute="centerX" secondItem="T3i-px-pah" secondAttribute="centerX" id="f6o-IM-1IG"/>
                 <constraint firstItem="0BG-jG-Vet" firstAttribute="leading" secondItem="DZL-Dk-br9" secondAttribute="leading" constant="20" id="qfA-ub-uln"/>
             </constraints>
-            <connections>
-                <outletCollection property="gestureRecognizers" destination="To6-yA-6Ew" appends="YES" id="seJ-R6-UP4"/>
-            </connections>
             <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
         </view>
-        <panGestureRecognizer minimumNumberOfTouches="1" id="To6-yA-6Ew">
-            <connections>
-                <action selector="dismissView:" destination="-1" id="Zx9-kH-1oS"/>
-            </connections>
-        </panGestureRecognizer>
     </objects>
 </document>

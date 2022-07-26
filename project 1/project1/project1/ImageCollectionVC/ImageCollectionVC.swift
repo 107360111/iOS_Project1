@@ -6,10 +6,17 @@ class ImageCollectionVC: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        componentsInit()
+    }
+    
+    private func componentsInit() {
+        landscope.contentMode = .scaleAspectFit
+        landscope.image = UIImage(named: "loading")
     }
     
     func setCell(url: String){
-
+        
         guard let url = URL(string: url) else {
             return
         }

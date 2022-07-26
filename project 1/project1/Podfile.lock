@@ -1,16 +1,22 @@
 PODS:
+  - SDWebImage (5.12.1):
+    - SDWebImage/Core (= 5.12.1)
+  - SDWebImage/Core (5.12.1)
   - Toast (4.0.0)
 
 DEPENDENCIES:
+  - SDWebImage
   - Toast
 
 SPEC REPOS:
   trunk:
+    - SDWebImage
     - Toast
 
 SPEC CHECKSUMS:
+  SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
 
-PODFILE CHECKSUM: f723e614f6a9901ad1f9b4b7ed1f0add805d238a
+PODFILE CHECKSUM: 24b50a4e5e8033e77fcf68fecb0312a8d7c30c8c
 
 COCOAPODS: 1.11.3

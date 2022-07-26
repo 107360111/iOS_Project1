@@ -6,31 +6,19 @@ class ViewController: UIViewController {
 
     var MapAPIData : MapAPI?
     
-    @IBOutlet var infoButton: UIBarButtonItem!
-    @IBOutlet var backButton: UIButton!
-    @IBOutlet var locationButton: UIButton!
-    
+    @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var searchButton: UIButton!
     @IBOutlet var recordButton: UIButton!
     
     @IBOutlet var MapView: MKMapView!
-    @IBOutlet var textField: UITextField!
     @IBOutlet var bartext: UINavigationItem!
     
     static var location:CLLocationManager? = nil
+            
+    var resetBool: Bool = true
     
-    var regLat: Double = 0.0
-    var regLng: Double = 0.0
-    var regName: String = ""
-    var regVic: String = ""
-    var regPho: String = ""
-    var regStar: Int = 0
-    var regLand: [String] = []
-    
-    var selectNum: Int = 0
-    
-    var recordNum: Int = 0
-    
+    var registerSearch: String = ""
+        
     var saveDataLat: [Double] = []
     var saveDataLng: [Double] = []
     var saveDataName: [String] = []
@@ -41,22 +29,13 @@ class ViewController: UIViewController {
     var recordDataName: [String] = []
     var recordDataVic: [String] = []
         
-    var infoName: String = ""
-    var infoVic: String = ""
     var infoPho: String = ""
     var infoStar: Int = 0
     var infoLand: [String] = []
-        
-    var annBool: Bool = false
-    var resetDataBool: Bool = false
-    
+            
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        backButton.isHidden = true
-        
-        infoButton.isEnabled = false
-        
+                
         if ViewController.location == nil {
             ViewController.location = CLLocationManager()
             ViewController.location?.requestWhenInUseAuthorization()
@@ -64,7 +43,7 @@ class ViewController: UIViewController {
         }
         getDataFromAPI()
     }
-    
+        
     func resetData() {
         saveDataLat = []
         saveDataLng = []
@@ -72,23 +51,19 @@ class ViewController: UIViewController {
         saveDataVic = []
     }
     
-    func transRecord(name: Int, str: String) {
-        if recordDataName.isEmpty {
-            self.recordDataLat.append(saveDataLat[name])
-            self.recordDataLng.append(saveDataLng[name])
-            self.recordDataName.append(saveDataName[name])
-            self.recordDataVic.append(saveDataVic[name])
-            
-            recordNum += 1
-        } else {
-            if recordDataName.contains(str) {
-            } else {
-                self.recordDataLat.append(saveDataLat[name])
-                self.recordDataLng.append(saveDataLng[name])
-                self.recordDataName.append(saveDataName[name])
-                self.recordDataVic.append(saveDataVic[name])
+    func transRecord(index: Int, str: String) {
         
-                recordNum += 1
+        if recordDataName.isEmpty {
+            self.recordDataLat.append(saveDataLat[index])
+            self.recordDataLng.append(saveDataLng[index])
+            self.recordDataName.append(saveDataName[index])
+            self.recordDataVic.append(saveDataVic[index])
+        } else {
+            if !recordDataName.contains(str) {
+                self.recordDataLat.append(saveDataLat[index])
+                self.recordDataLng.append(saveDataLng[index])
+                self.recordDataName.append(saveDataName[index])
+                self.recordDataVic.append(saveDataVic[index])
             }
         }
     }
@@ -99,20 +74,7 @@ class ViewController: UIViewController {
         recordDataName = []
         recordDataVic = []
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showInfoPage" {
-            let VC = segue.destination as! HotelInfomationVC
-            
-            VC.name = infoName
-            VC.vic = infoVic
-            VC.pho = infoPho
-            VC.star = infoStar
-            VC.landscope = infoLand
-            
-        }
-    }
-    
+        
     private func getDataFromAPI() {
         if let url: URL = URL(string: "https://android-quiz-29a4c.web.app/") {
             var request = URLRequest(url: url)
@@ -130,7 +92,7 @@ class ViewController: UIViewController {
                             self.MapAPIData = try JSONDecoder().decode(MapAPI.self, from: data)
                             self.MapView.reloadInputViews()
                             
-                            self.signData()
+                            self.setAnnotation()
                         } catch {
                             print(error.localizedDescription)
                         }
@@ -141,76 +103,44 @@ class ViewController: UIViewController {
         }
     }
     
-    private func signData() {
+    private func setAnnotation() {
         MapAPIData?.results.content.forEach { content in
-            regLat = content.lat
-            regLng = content.lng
-            regName = content.name
-            regVic = content.vicinity
-
+            let annotation = MKPointAnnotation()
             
-            self.addAnnotation()
+            annotation.coordinate = CLLocationCoordinate2DMake(content.lat, content.lng)
+                
+            annotation.title = String(format: "%@", content.name)
+            annotation.subtitle = String(format: "%@", content.vicinity)
+
+            MapView.addAnnotation(annotation)
         }
-    }
-
-    private func addAnnotation() {
-        let annotation = MKPointAnnotation()
-
-        let latLng = CLLocationCoordinate2DMake(regLat, regLng)
-        
-        annotation.coordinate = latLng
-            
-        annotation.title = String(format: "%@", regName)
-        annotation.subtitle = String(format: "%@", regVic)
-
-        MapView.addAnnotation(annotation)
     }
     
     private func clickAnnotation(strName: String, strVic: String, douLat: Double, douLng: Double) {
-        if annBool == false {
-            showOneAnn(strName: strName, strVic: strVic, douLat: douLat, douLng: douLng)
-            
-            MapAPIData?.results.content.forEach { content in
-                regName = content.name
-                regPho = content.photo
-                regStar = content.star
-                regLand = content.landscape
-                
-                if regName.contains(strName){
-                    infoPho = regPho
-                    infoStar = regStar
-                    infoLand = regLand
-                }
+        MapAPIData?.results.content.forEach { content in
+            if content.name.contains(strName){
+                infoPho = content.photo
+                infoStar = content.star
+                infoLand = content.landscape
             }
-            
-            let VC = AnnotationClickVC()
-            VC.name = strName
-            VC.vic = strVic
-                   
-            self.searchButton.isHidden = true
-            self.recordButton.isHidden = true
-            self.locationButton.isHidden = true
-            self.backButton.isHidden = false
-            
-            VC.selectInfo = {(name:String)->() in
-                self.infoButton.isEnabled = true
-                self.infoButton.title = "詳細資料"
-                
-                self.bartext.title = name
-            
-                self.infoName = strName
-                self.infoVic = strVic
-                
-                self.annBool = true
-            }
-            
-            VC.selectGPS = {(name:String)->() in
-                self.bartext.title = name
-                self.GPSLocation(douLat: douLat, douLng: douLng)
-            }
-
-            VC.showOn(VC: self)
         }
+        let VC = AnnotationClickVC(name: strName, vic: strVic, lat: douLat, lng: douLng)
+        VC.delegate = self as AnnotationClickVCDelegate
+        VC.showOn(VC: self)
+    }
+    
+    private func HotelInfo(name: String, vic: String) {
+        
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        let VC = storyBoard.instantiateViewController(identifier: "HotelInfomation") as! HotelInfomationVC
+        
+        VC.name = name
+        VC.vic = vic
+        VC.photo = infoPho
+        VC.star = infoStar
+        VC.landscope = infoLand
+        
+        navigationController?.pushViewController(VC, animated: true)
     }
     
     private func GPSLocation(douLat: Double, douLng: Double) {
@@ -232,127 +162,58 @@ class ViewController: UIViewController {
         
         // 我們可以透過 launchOptions 選擇我們的導航模式，例如：開車、走路等等...
         MKMapItem.openMaps(with: routes, launchOptions: [MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving])
-        
-        annBool = true
-    }
-    
-    private func showOneAnn(strName: String, strVic: String, douLat: Double, douLng: Double) {
-        MapView.removeAnnotations(MapView.annotations)
-        
-        let annotation = MKPointAnnotation()
-        let latLng = CLLocationCoordinate2DMake(douLat, douLng)
-        annotation.coordinate = latLng
-        annotation.title = String(format: "%@", strName)
-        annotation.subtitle = String(format: "%@", strVic)
-        MapView.addAnnotation(annotation)
-    }
-    
-    @IBAction func BackButton(_ sender: Any) {
-        MapView.removeOverlays(MapView.overlays)
-        self.getDataFromAPI()
-        
-        bartext.title = "景點搜尋"
-        
-        infoButton.isEnabled = false
-        self.infoButton.title = ""
-        
-        searchButton.isHidden = false
-        recordButton.isHidden = false
-        locationButton.isHidden = false
-        backButton.isHidden = true
-                        
-        annBool = false
     }
         
     @IBAction func MapSearch(_ sender: Any) {
-        let searchName = textField.text ?? ""
         resetData()
+        let searchName = searchBar.text ?? ""
         
         if searchName.isEmpty  {
             view.makeToast("請輸入資料")
         } else {
-        MapAPIData?.results.content.forEach { content in
-            regLat = content.lat
-            regLng = content.lng
-            
-            regName = content.name
-            regVic = content.vicinity
-            
-            if regName.contains(searchName) || regVic.contains(searchName) {
-                
-                selectNum += 1
-                
-                saveDataLat.append(regLat)
-                saveDataLng.append(regLng)
-                
-                saveDataName.append(regName)
-                saveDataVic.append(regVic)
+            MapAPIData?.results.content.forEach { content in
+    
+                if content.name.contains(searchName) || content.vicinity.contains(searchName) {
+                    saveDataLat.append(content.lat)
+                    saveDataLng.append(content.lng)
+                    
+                    saveDataName.append(content.name)
+                    saveDataVic.append(content.vicinity)
+                }
             }
-        }
-//        let VC = MapSearchVC(name: saveDataName, vic: saveDataVic, dataCount: selectNum)
-        
-        let VC = MapSearchVC()
-        VC.name = saveDataName
-        VC.vic = saveDataVic
-        VC.dataCount = selectNum
-
-        VC.showOn(VC: self)
-
-        VC.selectHandler = {(name:Int)->() in
-            if self.saveDataName.isEmpty {
-                self.view.makeToast("查無結果")
+            if !saveDataName.isEmpty {
+                let VC = MapSearchVC(name: saveDataName, vic: saveDataVic, lat: saveDataLat, lng: saveDataLng)
+                VC.delegate = self as MapSearchVCDelegate
+                
+                VC.showOn(VC: self)
             } else {
-                let latLng = CLLocationCoordinate2DMake(self.saveDataLat[name], self.saveDataLng[name])
-                let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-                let region = MKCoordinateRegion(center: latLng, span: span)
-                self.MapView.setRegion(region, animated: true)
-
-                self.transRecord(name: name , str: self.saveDataName[name])
+                view.makeToast("查詢錯誤")
             }
         }
-    }
     }
     
-    @IBAction func MapSerachRecord(_ sender: Any) {
-        if recordDataName.isEmpty {
-            view.makeToast("無歷史記錄")
+    @IBAction func MapSearchRecord(_ sender: Any) {
+        if recordDataName.isEmpty  {
+            view.makeToast("無搜尋紀錄")
         } else {
-//            let VC = MapSearchVC(name: recordDataName, vic: recordDataVic, dataCount: recordNum)
-            
-            let VC = MapSearchRecordVC()
-            VC.name = recordDataName
-            VC.vic = recordDataVic
-            VC.dataCount = recordNum
-            
+            let VC = MapSearchRecordVC(name: recordDataName, vic: recordDataVic, lat: recordDataLat, lng: recordDataLng)
+            VC.delegate = self as MapSearchRecordVCDelegate
             VC.showOn(VC: self)
-            
-            VC.selectHandler = {(name:Int)->() in
-                let latLng = CLLocationCoordinate2DMake(self.recordDataLat[name], self.recordDataLng[name])
-                let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-                let region = MKCoordinateRegion(center: latLng, span: span)
-                self.MapView.setRegion(region, animated: true)
-            }
-            
-            VC.clearClick = {(clear:Bool)->() in
-                self.clearRecord()
-
-                self.view.makeToast("已清除記錄")
-            }
         }
     }
     
     @IBAction func ResetData(_ sender: Any) {
-        if resetDataBool == false {
+        if resetBool == true {
             let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
             let center = MapView.userLocation.coordinate
             let region = MKCoordinateRegion(center: center, span: span)
             MapView.setRegion(region, animated: true)
-            resetDataBool = true
+            resetBool = false
         } else {
             MapView.showAnnotations(MapView.annotations, animated: true)
-            resetDataBool = false
+            resetBool = true
         }
-    }
+}
 }
 
 extension ViewController: MKMapViewDelegate{
@@ -362,5 +223,43 @@ extension ViewController: MKMapViewDelegate{
         let douLat = view.annotation?.coordinate.latitude ?? 0.0
         let douLng = view.annotation?.coordinate.longitude ?? 0.0
         clickAnnotation(strName: strName, strVic: strVic, douLat: douLat, douLng: douLng)
+    }
+}
+
+extension ViewController: MapSearchVCDelegate {
+    func setMapRegion(index: Int, lat: CLLocationDegrees, lng: CLLocationDegrees) {
+        registerSearch = saveDataName[index]
+        transRecord(index: index, str: registerSearch)
+        
+        let latLng = CLLocationCoordinate2D(latitude: lat, longitude: lng)
+        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        let region = MapView.regionThatFits(MKCoordinateRegion(center: latLng, span: span))
+        
+        self.MapView.setRegion(region, animated: true)
+    }
+}
+
+extension ViewController: MapSearchRecordVCDelegate {
+    func recordDidClear() {
+        self.clearRecord()
+        self.view.endEditing(true)
+        self.view.makeToast("已清除記錄")
+    }
+        
+    func setMapRegion(lat: CLLocationDegrees, lng: CLLocationDegrees) {
+        
+        let latLng = CLLocationCoordinate2DMake(lat, lng)
+        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        let region = MKCoordinateRegion(center: latLng, span: span)
+        self.MapView.setRegion(region, animated: true)
+    }
+}
+
+extension ViewController: AnnotationClickVCDelegate {
+    func transtoInfo(name: String, vic: String) {
+        HotelInfo(name: name, vic: vic)
+    }
+    func transtoGPS(lat: Double, lng: Double) {
+        GPSLocation(douLat: lat, douLng: lng)
     }
 }

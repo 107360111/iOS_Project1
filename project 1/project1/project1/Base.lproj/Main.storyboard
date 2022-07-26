@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTK-1K-zHg">
-                                <rect key="frame" x="249" y="104" width="60" height="34.5"/>
+                                <rect key="frame" x="249" y="104" width="60" height="23.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="e9G-yn-ghf"/>
                                 </constraints>
@@ -32,7 +32,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKG-Xo-1l7">
-                                <rect key="frame" x="324" y="104" width="75" height="34.5"/>
+                                <rect key="frame" x="324" y="104" width="75" height="23.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="7MX-eu-e1I"/>
                                 </constraints>
@@ -42,22 +42,43 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="MapSerachRecord:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uqE-hO-JsW"/>
+                                    <action selector="MapSearchRecord:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qoq-Vk-jsR"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="名稱 地址搜尋" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aSa-1K-mWS">
-                                <rect key="frame" x="15" y="103" width="219" height="37"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mvr-Pp-arO">
-                                <rect key="frame" x="15" y="150" width="384" height="697"/>
+                                <rect key="frame" x="15" y="139" width="384" height="708"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="oBq-iO-sMq"/>
                                 </connections>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="3Yr-n8-Qfa" userLabel="重置">
-                                <rect key="frame" x="20" y="160" width="37" height="34"/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="aGh-0a-CTx">
+                                <rect key="frame" x="15" y="88" width="219" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wKG-Xo-1l7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="3xq-cF-e5e"/>
+                            <constraint firstItem="aGh-0a-CTx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ETe-Zl-OdW"/>
+                            <constraint firstItem="zTK-1K-zHg" firstAttribute="leading" secondItem="aGh-0a-CTx" secondAttribute="trailing" constant="15" id="GcF-jf-A62"/>
+                            <constraint firstItem="mvr-Pp-arO" firstAttribute="top" secondItem="aGh-0a-CTx" secondAttribute="bottom" id="HuD-YV-FZS"/>
+                            <constraint firstItem="mvr-Pp-arO" firstAttribute="top" secondItem="zTK-1K-zHg" secondAttribute="bottom" constant="10" id="QCS-lD-mBW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wKG-Xo-1l7" secondAttribute="trailing" constant="15" id="TJq-UK-WDo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mvr-Pp-arO" secondAttribute="bottom" constant="15" id="TU7-mV-wZE"/>
+                            <constraint firstItem="zTK-1K-zHg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="V1w-sg-WZO"/>
+                            <constraint firstItem="aGh-0a-CTx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="o4J-CM-ChZ"/>
+                            <constraint firstItem="mvr-Pp-arO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="pXu-xZ-BCI"/>
+                            <constraint firstItem="wKG-Xo-1l7" firstAttribute="leading" secondItem="zTK-1K-zHg" secondAttribute="trailing" priority="800" constant="15" id="qUY-mC-3wW"/>
+                            <constraint firstItem="mvr-Pp-arO" firstAttribute="top" secondItem="wKG-Xo-1l7" secondAttribute="bottom" constant="10" id="tCq-vC-I5Q"/>
+                            <constraint firstItem="mvr-Pp-arO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vO6-6M-f5y"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mvr-Pp-arO" secondAttribute="trailing" constant="15" id="zbJ-bR-fA1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="景點搜尋" id="eqD-nS-8Ig" userLabel="景點搜尋">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="rsN-da-9Fm">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="3Yr-n8-Qfa" userLabel="重置">
+                                <rect key="frame" x="344" y="5" width="50" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="goforward" catalog="system">
@@ -66,58 +87,17 @@
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="ResetData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="haP-ZM-H8x"/>
+                                    <action selector="ResetData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7gu-fD-L8z"/>
                                 </connections>
                             </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="wKG-Xo-1l7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="3xq-cF-e5e"/>
-                            <constraint firstItem="3Yr-n8-Qfa" firstAttribute="top" secondItem="aSa-1K-mWS" secondAttribute="bottom" constant="20" id="8Lr-S6-deW"/>
-                            <constraint firstItem="zTK-1K-zHg" firstAttribute="leading" relation="lessThanOrEqual" secondItem="aSa-1K-mWS" secondAttribute="trailing" constant="15" id="GKQ-er-KN1"/>
-                            <constraint firstItem="mvr-Pp-arO" firstAttribute="top" secondItem="zTK-1K-zHg" secondAttribute="bottom" constant="10" id="QCS-lD-mBW"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wKG-Xo-1l7" secondAttribute="trailing" constant="15" id="TJq-UK-WDo"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mvr-Pp-arO" secondAttribute="bottom" constant="15" id="TU7-mV-wZE"/>
-                            <constraint firstItem="mvr-Pp-arO" firstAttribute="top" secondItem="aSa-1K-mWS" secondAttribute="bottom" constant="10" id="Th0-r8-Vjc"/>
-                            <constraint firstItem="zTK-1K-zHg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="V1w-sg-WZO"/>
-                            <constraint firstItem="aSa-1K-mWS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="d17-6V-o40"/>
-                            <constraint firstItem="aSa-1K-mWS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="g8g-bT-l04"/>
-                            <constraint firstItem="mvr-Pp-arO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="pXu-xZ-BCI"/>
-                            <constraint firstItem="wKG-Xo-1l7" firstAttribute="leading" secondItem="zTK-1K-zHg" secondAttribute="trailing" priority="800" constant="15" id="qUY-mC-3wW"/>
-                            <constraint firstItem="mvr-Pp-arO" firstAttribute="top" secondItem="aSa-1K-mWS" secondAttribute="bottom" constant="10" id="rlu-r4-rX6"/>
-                            <constraint firstItem="mvr-Pp-arO" firstAttribute="top" secondItem="wKG-Xo-1l7" secondAttribute="bottom" constant="10" id="tCq-vC-I5Q"/>
-                            <constraint firstItem="mvr-Pp-arO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vO6-6M-f5y"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mvr-Pp-arO" secondAttribute="trailing" constant="15" id="zbJ-bR-fA1"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="景點搜尋" id="eqD-nS-8Ig" userLabel="景點搜尋">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="hnp-cu-b7n">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="cC6-CE-5Z0" userLabel="返回">
-                                <rect key="frame" x="20" y="5" width="92" height="34.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="返回"/>
-                                <connections>
-                                    <action selector="BackButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZHq-q4-U8S"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" id="xVb-fL-vgJ">
-                            <connections>
-                                <segue destination="d0u-lT-RrL" kind="show" identifier="showInfoPage" id="Fl2-Yw-nmC"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="MapView" destination="mvr-Pp-arO" id="6MS-76-gAk"/>
-                        <outlet property="backButton" destination="cC6-CE-5Z0" id="10Z-Yq-X8F"/>
-                        <outlet property="bartext" destination="eqD-nS-8Ig" id="Fop-Fj-Cmf"/>
-                        <outlet property="infoButton" destination="xVb-fL-vgJ" id="YL8-rm-vdm"/>
-                        <outlet property="locationButton" destination="3Yr-n8-Qfa" id="jZW-Ec-eCG"/>
-                        <outlet property="recordButton" destination="wKG-Xo-1l7" id="Zdw-KA-KtB"/>
-                        <outlet property="searchButton" destination="zTK-1K-zHg" id="Ssk-tj-lQB"/>
-                        <outlet property="textField" destination="aSa-1K-mWS" id="z5n-Dv-BiT"/>
+                        <outlet property="bartext" destination="eqD-nS-8Ig" id="gYA-cF-uAV"/>
+                        <outlet property="recordButton" destination="wKG-Xo-1l7" id="dSe-En-BKt"/>
+                        <outlet property="searchBar" destination="aGh-0a-CTx" id="GUC-Kx-FeL"/>
+                        <outlet property="searchButton" destination="zTK-1K-zHg" id="5lk-B1-bVP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -127,29 +107,29 @@
         <!--旅店資料-->
         <scene sceneID="k9M-2E-7Wa">
             <objects>
-                <viewController storyboardIdentifier="HotelInfomationVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="d0u-lT-RrL" userLabel="旅店資料" customClass="HotelInfomationVC" customModule="project1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HotelInfomation" useStoryboardIdentifierAsRestorationIdentifier="YES" id="d0u-lT-RrL" userLabel="旅店資料" customClass="HotelInfomationVC" customModule="project1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="biH-DY-XXt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A3h-Rk-kQ7" userLabel="旅館照片">
-                                <rect key="frame" x="87" y="108" width="240" height="150"/>
+                                <rect key="frame" x="87" y="64" width="240" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="noy-s3-WjC"/>
                                     <constraint firstAttribute="height" constant="150" id="xNg-Ns-wP7"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zi-Dz-Ofb" userLabel="旅店名稱">
-                                <rect key="frame" x="10" y="278" width="394" height="20"/>
+                                <rect key="frame" x="10" y="234" width="394" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="obq-3T-G17"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lmv-4s-VbY" userLabel="旅店地址">
-                                <rect key="frame" x="10" y="318" width="394" height="20"/>
+                                <rect key="frame" x="10" y="274" width="394" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="VBU-xS-lvV"/>
                                 </constraints>
@@ -158,7 +138,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1GZ-lN-XP7">
-                                <rect key="frame" x="40" y="358" width="334" height="90"/>
+                                <rect key="frame" x="40" y="314" width="334" height="90"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="sDe-lW-LWW"/>
@@ -185,7 +165,7 @@
                                 </connections>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6Jw-c4-YYQ">
-                                <rect key="frame" x="40" y="509" width="334" height="273"/>
+                                <rect key="frame" x="40" y="465" width="334" height="317"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fLx-h0-Bsi">
                                     <size key="itemSize" width="120" height="120"/>
@@ -209,7 +189,7 @@
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZj-6a-Gbh" userLabel="景觀圖">
-                                <rect key="frame" x="40" y="468" width="42" height="21"/>
+                                <rect key="frame" x="40" y="424" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -251,25 +231,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XKF-BO-yoD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="776.81159420289862" y="97.767857142857139"/>
-        </scene>
-        <!--景觀圖照片-->
-        <scene sceneID="BW6-hU-Swt">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9lW-yj-V3o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="scrollingVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Jag-XR-RSR" userLabel="景觀圖照片" customClass="scrollingVC" customModule="project1" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bY7-VM-xVB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="5jw-aJ-mkY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="vru-4B-Q9W"/>
-                    <connections>
-                        <outlet property="scrollBar" destination="vru-4B-Q9W" id="ijv-aw-zKf"/>
-                    </connections>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="1533.3333333333335" y="97.767857142857139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="907-e4-5b2">

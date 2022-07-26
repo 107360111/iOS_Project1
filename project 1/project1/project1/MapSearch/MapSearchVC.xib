@@ -16,17 +16,13 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tapGestureRecognizer id="OUq-Vc-QxA">
-            <connections>
-                <action selector="dismissView:" destination="-1" id="pXw-dj-6tD"/>
-            </connections>
-        </tapGestureRecognizer>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="s7t-kg-7N8">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mUV-Qp-boq" userLabel="second View">
+                <view contentMode="scaleToFill" id="mUV-Qp-boq" userLabel="second View">
                     <rect key="frame" x="32" y="244" width="350" height="408"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="搜尋結果" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmY-aA-D8I">
                             <rect key="frame" x="140" y="15" width="70" height="20"/>
@@ -71,9 +67,6 @@
                 <constraint firstItem="mUV-Qp-boq" firstAttribute="top" relation="greaterThanOrEqual" secondItem="a2a-Tk-ZLW" secondAttribute="top" constant="15" id="f9e-he-g3B"/>
                 <constraint firstItem="mUV-Qp-boq" firstAttribute="centerY" secondItem="s7t-kg-7N8" secondAttribute="centerY" id="pE6-x2-Qdn"/>
             </constraints>
-            <connections>
-                <outletCollection property="gestureRecognizers" destination="OUq-Vc-QxA" appends="YES" id="Nqr-Vc-hCW"/>
-            </connections>
             <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
         </view>
     </objects>
