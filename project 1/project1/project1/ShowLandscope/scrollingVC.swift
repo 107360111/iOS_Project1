@@ -8,8 +8,6 @@ class scrollingVC: UIViewController {
     
     private var pageControl: UIPageControl!
     
-    private var selectedBool: [Bool] = [true]
-    
     private var isInit: Bool = true
     private var landscope: [String] = []
     private var landscopeNowCount: Int = 1 { didSet {title = String(format: "%d/%d", landscopeNowCount+1, landscope.count)}}
@@ -98,8 +96,6 @@ extension scrollingVC: UICollectionViewDataSource {
         imgView.sd_setImage(with: URL(string: landscope[indexPath.row]))
         
         cell.addSubview(imgView)
-        
-        collectionView.reloadData()
         
         return cell
     }

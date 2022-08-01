@@ -1,19 +1,31 @@
 import UIKit
+import SDWebImage
 
 class HotelInfomationVC: UIViewController {
     
     @IBOutlet var starCollectionView: UICollectionView!
-    @IBOutlet var landscopeCollectionView: UICollectionView!
+    
+    @IBOutlet weak var landscopeCollectionView: UICollectionView!
     @IBOutlet var hotelImageView: UIImageView!
     @IBOutlet var hotelName: UILabel!
     @IBOutlet var hotelVic: UILabel!
     @IBOutlet var landscopeCount: UILabel!
     
-    var name: String = ""
-    var vic: String = ""
-    var photo: String = ""
-    var star: Int = 0
-    var landscope: [String] = []
+    private var name: String = ""
+    private var vic: String = ""
+    private var photo: String = ""
+    private var star: Int = 0
+    private var landscope: [String] = []
+    
+    convenience init(name: String, vic: String, photo: String, star: Int, landscope: [String]) {
+        self.init()
+        self.name = name
+        self.vic = vic
+        self.photo = photo
+        self.star = star
+        self.landscope = landscope
+        
+    }
     
     
     override func viewDidLoad() {
@@ -38,16 +50,10 @@ class HotelInfomationVC: UIViewController {
     }
     
     private func showImage(url: String) {
-        guard let url = URL(string: url) else {
-            return
-        }
+        guard let url = URL(string: url) else { return }
         
-        DispatchQueue.main.async { [weak self] in
-            if let imageData = try? Data(contentsOf: url) {
-                if let loadedImage = UIImage(data: imageData) {
-                    self?.hotelImageView.image = loadedImage
-                }
-            }
+        DispatchQueue.main.async { 
+            self.hotelImageView.sd_setImage(with: url)
         }
     }
     
@@ -68,19 +74,26 @@ extension HotelInfomationVC: UICollectionViewDataSource{
         switch collectionView {
         case starCollectionView:
             
-            let firstcell = collectionView.dequeueReusableCell(withReuseIdentifier: "firCell", for: indexPath) as! starCollectionVC
+            if let firstCell = collectionView.dequeueReusableCell(withReuseIdentifier: "firCell", for: indexPath) as? starCollectionVC {
+                firstCell.setCell()
+                return firstCell
+            }
             
-            firstcell.setCell()
             
-            return firstcell
+            
+            
         default:
 
-            let secondcell = collectionView.dequeueReusableCell(withReuseIdentifier: "secCell", for: indexPath) as! ImageCollectionVC
+            if let secondcell = collectionView.dequeueReusableCell(withReuseIdentifier: "secCell", for: indexPath) as? ImageCollectionVC {
+                
+                secondcell.setCell(url: landscope[indexPath.row])
+                
+                return secondcell
+            }
             
-            secondcell.setCell(url: landscope[indexPath.row])
             
-            return secondcell
         }
+        return ImageCollectionVC()
     }
 }
 

@@ -1,4 +1,5 @@
 import UIKit
+import SDWebImage
 
 class ImageCollectionVC: UICollectionViewCell {
     
@@ -15,18 +16,14 @@ class ImageCollectionVC: UICollectionViewCell {
         landscope.image = UIImage(named: "loading")
     }
     
-    func setCell(url: String){
+    func setCell(url: String) {
         
         guard let url = URL(string: url) else {
             return
         }
 
-        DispatchQueue.main.async { [weak self] in
-            if let imageData = try? Data(contentsOf: url) {
-                if let loadedImage = UIImage(data: imageData) {
-                    self?.landscope.image = loadedImage
-                }
-            }
+        DispatchQueue.main.async {
+            self.landscope.sd_setImage(with: url)
         }
     }
     

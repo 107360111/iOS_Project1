@@ -86,7 +86,6 @@ class ViewController: UIViewController {
                     return
                 } else if let data = data {
                     print("\n成功接收API資料\n")
-                    
                     DispatchQueue.main.async {
                         do {
                             self.MapAPIData = try JSONDecoder().decode(MapAPI.self, from: data)
@@ -94,7 +93,7 @@ class ViewController: UIViewController {
                             
                             self.setAnnotation()
                         } catch {
-                            print(error.localizedDescription)
+                            print(error)
                         }
                     }
                 }
@@ -131,16 +130,11 @@ class ViewController: UIViewController {
     
     private func HotelInfo(name: String, vic: String) {
         
-        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-        let VC = storyBoard.instantiateViewController(identifier: "HotelInfomation") as! HotelInfomationVC
         
-        VC.name = name
-        VC.vic = vic
-        VC.photo = infoPho
-        VC.star = infoStar
-        VC.landscope = infoLand
+        let VC = HotelInfomationVC(name: name, vic: vic, photo: infoPho, star: infoStar, landscope: infoLand)
         
-        navigationController?.pushViewController(VC, animated: true)
+        
+        self.navigationController?.pushViewController(VC, animated: true)
     }
     
     private func GPSLocation(douLat: Double, douLng: Double) {
@@ -203,7 +197,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func ResetData(_ sender: Any) {
-        if resetBool == true {
+        if resetBool {
             let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
             let center = MapView.userLocation.coordinate
             let region = MKCoordinateRegion(center: center, span: span)

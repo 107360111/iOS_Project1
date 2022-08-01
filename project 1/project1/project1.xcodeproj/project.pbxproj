@@ -18,6 +18,7 @@
 		141E7F8828814E410042AA65 /* starCollectionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 141E7F8628814E410042AA65 /* starCollectionVC.xib */; };
 		143A3F9A2878010200CC57B7 /* MapSearchRecordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 143A3F982878010200CC57B7 /* MapSearchRecordVC.xib */; };
 		143A3FA5287814EC00CC57B7 /* MapSearchRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143A3FA4287814EC00CC57B7 /* MapSearchRecordVC.swift */; };
+		143C049E2891194E00D636E7 /* HotelInfomationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 143C049D2891194E00D636E7 /* HotelInfomationVC.xib */; };
 		1470E84F2885501E00C94325 /* ImageCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1470E84D2885501E00C94325 /* ImageCollectionVC.swift */; };
 		1470E8502885501E00C94325 /* ImageCollectionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1470E84E2885501E00C94325 /* ImageCollectionVC.xib */; };
 		14870979287C261500BE84E4 /* MapAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14870978287C261500BE84E4 /* MapAPI.swift */; };
@@ -44,6 +45,7 @@
 		141E7F8628814E410042AA65 /* starCollectionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = starCollectionVC.xib; sourceTree = "<group>"; };
 		143A3F982878010200CC57B7 /* MapSearchRecordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapSearchRecordVC.xib; sourceTree = "<group>"; };
 		143A3FA4287814EC00CC57B7 /* MapSearchRecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchRecordVC.swift; sourceTree = "<group>"; };
+		143C049D2891194E00D636E7 /* HotelInfomationVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HotelInfomationVC.xib; sourceTree = "<group>"; };
 		1470E84D2885501E00C94325 /* ImageCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionVC.swift; sourceTree = "<group>"; };
 		1470E84E2885501E00C94325 /* ImageCollectionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionVC.xib; sourceTree = "<group>"; };
 		14870978287C261500BE84E4 /* MapAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAPI.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				141845D72876DD3700FB6D8E /* Main.storyboard */,
 				141845D52876DD3700FB6D8E /* ViewController.swift */,
 				141E7F82288138190042AA65 /* HotelInfomationVC.swift */,
+				143C049D2891194E00D636E7 /* HotelInfomationVC.xib */,
 				141845DA2876DD3900FB6D8E /* Assets.xcassets */,
 				141845DC2876DD3900FB6D8E /* LaunchScreen.storyboard */,
 				141845DF2876DD3900FB6D8E /* Info.plist */,
@@ -242,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14D6B8F9287FF57400E2C08B /* AnnotationClickVC.xib in Resources */,
+				143C049E2891194E00D636E7 /* HotelInfomationVC.xib in Resources */,
 				141845DE2876DD3900FB6D8E /* LaunchScreen.storyboard in Resources */,
 				141845DB2876DD3900FB6D8E /* Assets.xcassets in Resources */,
 				14D6B8F4287FE50F00E2C08B /* MapSearchVC.xib in Resources */,
