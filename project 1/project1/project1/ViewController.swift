@@ -129,10 +129,7 @@ class ViewController: UIViewController {
     }
     
     private func HotelInfo(name: String, vic: String) {
-        
-        
         let VC = HotelInfomationVC(name: name, vic: vic, photo: infoPho, star: infoStar, landscope: infoLand)
-        
         
         self.navigationController?.pushViewController(VC, animated: true)
     }
@@ -212,6 +209,7 @@ class ViewController: UIViewController {
 
 extension ViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        mapView.deselectAnnotation(view.annotation, animated: true)
         let strName = ((view.annotation?.title) ?? "") ?? ""
         let strVic = ((view.annotation?.subtitle) ?? "") ?? ""
         let douLat = view.annotation?.coordinate.latitude ?? 0.0

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="QG6-6z-UU7" customClass="StarCollectionViewCell" customModule="project1" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="601" height="600"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="601" height="600"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jTr-19-WFO">
+                        <rect key="frame" x="0.0" y="0.0" width="601" height="600"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dVb-gN-tkh" userLabel="star">
+                                <rect key="frame" x="10" y="10" width="581" height="580"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="dVb-gN-tkh" secondAttribute="trailing" constant="10" id="7hY-t2-Yxw"/>
+                            <constraint firstItem="dVb-gN-tkh" firstAttribute="leading" secondItem="jTr-19-WFO" secondAttribute="leading" constant="10" id="7jC-ii-0X7"/>
+                            <constraint firstAttribute="bottom" secondItem="dVb-gN-tkh" secondAttribute="bottom" constant="10" id="FTI-dz-jrA"/>
+                            <constraint firstItem="dVb-gN-tkh" firstAttribute="top" secondItem="jTr-19-WFO" secondAttribute="top" constant="10" id="Wnv-X5-Hzy"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="dGV-ZT-bMA"/>
+            <constraints>
+                <constraint firstItem="jTr-19-WFO" firstAttribute="leading" secondItem="QG6-6z-UU7" secondAttribute="leading" id="3UN-Oh-HqQ"/>
+                <constraint firstItem="jTr-19-WFO" firstAttribute="top" secondItem="QG6-6z-UU7" secondAttribute="top" id="6bx-fv-erS"/>
+                <constraint firstAttribute="trailing" secondItem="jTr-19-WFO" secondAttribute="trailing" id="qLp-yN-BOL"/>
+                <constraint firstAttribute="bottom" secondItem="jTr-19-WFO" secondAttribute="bottom" id="qts-ex-Pzj"/>
+            </constraints>
+            <size key="customSize" width="602" height="520"/>
+            <connections>
+                <outlet property="star" destination="dVb-gN-tkh" id="8WF-f9-1uE"/>
+            </connections>
+            <point key="canvasLocation" x="289.85507246376812" y="131.25"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

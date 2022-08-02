@@ -42,11 +42,11 @@ class HotelInfomationVC: UIViewController {
         
         showImage(url: photo)
         
-        let cellNibStar = UINib(nibName: "starCollectionVC", bundle: nil)
-        starCollectionView.register(cellNibStar, forCellWithReuseIdentifier: "firCell")
+        let cellNibStar = UINib(nibName: "StarCollectionViewCell", bundle: nil)
+        starCollectionView.register(cellNibStar, forCellWithReuseIdentifier: "firstCell")
         
-        let cellNibLandscope = UINib(nibName: "ImageCollectionVC", bundle: nil)
-        landscopeCollectionView.register(cellNibLandscope, forCellWithReuseIdentifier: "secCell")
+        let cellNibLandscope = UINib(nibName: "LandscopeCollectionViewCell", bundle: nil)
+        landscopeCollectionView.register(cellNibLandscope, forCellWithReuseIdentifier: "secondCell")
     }
     
     private func showImage(url: String) {
@@ -73,27 +73,24 @@ extension HotelInfomationVC: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
         case starCollectionView:
-            
-            if let firstCell = collectionView.dequeueReusableCell(withReuseIdentifier: "firCell", for: indexPath) as? starCollectionVC {
-                firstCell.setCell()
-                return firstCell
+            guard let firstCell = collectionView.dequeueReusableCell(withReuseIdentifier: "firstCell", for: indexPath) as? StarCollectionViewCell else {
+                fatalError()
             }
             
+            firstCell.setCell()
+            return firstCell
             
+        case landscopeCollectionView:
+            guard let secondCell = collectionView.dequeueReusableCell(withReuseIdentifier: "secondCell", for: indexPath) as? LandscopeCollectionViewCell else {
+                fatalError()
+            }
             
+            secondCell.setCell(url: landscope[indexPath.row])
+            return secondCell
             
         default:
-
-            if let secondcell = collectionView.dequeueReusableCell(withReuseIdentifier: "secCell", for: indexPath) as? ImageCollectionVC {
-                
-                secondcell.setCell(url: landscope[indexPath.row])
-                
-                return secondcell
-            }
-            
-            
+            return LandscopeCollectionViewCell()
         }
-        return ImageCollectionVC()
     }
 }
 
@@ -101,11 +98,15 @@ extension HotelInfomationVC: UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
         switch collectionView {
+        case starCollectionView:
+            print("無效點擊")
+            
         case landscopeCollectionView:
                         
             let VC = scrollingVC(landscope: landscope, landscopeNowCount: indexPath.row)
             
             navigationController?.pushViewController(VC, animated: true)
+            
         default:
             print("無效點擊")
         }
@@ -116,12 +117,14 @@ extension HotelInfomationVC: UICollectionViewDelegateFlowLayout{
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch collectionView {
+        case starCollectionView:
+            return CGSize(width: 50, height: 50)
+            
         case landscopeCollectionView:
-            let width = Int((collectionView.bounds.size.width)/2)
-            let height = Int(CGFloat(width))
-            return CGSize(width: width, height: height)
+            return CGSize(width: 120, height: 120)
+
         default:
-            return CGSize(width: 25, height: 25)
+            return CGSize(width: 0, height: 0)
         }
     }
 }

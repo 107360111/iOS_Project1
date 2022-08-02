@@ -14,14 +14,14 @@
 		141845DB2876DD3900FB6D8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 141845DA2876DD3900FB6D8E /* Assets.xcassets */; };
 		141845DE2876DD3900FB6D8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141845DC2876DD3900FB6D8E /* LaunchScreen.storyboard */; };
 		141E7F83288138190042AA65 /* HotelInfomationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E7F82288138190042AA65 /* HotelInfomationVC.swift */; };
-		141E7F8728814E410042AA65 /* starCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E7F8528814E410042AA65 /* starCollectionVC.swift */; };
-		141E7F8828814E410042AA65 /* starCollectionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 141E7F8628814E410042AA65 /* starCollectionVC.xib */; };
 		143A3F9A2878010200CC57B7 /* MapSearchRecordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 143A3F982878010200CC57B7 /* MapSearchRecordVC.xib */; };
 		143A3FA5287814EC00CC57B7 /* MapSearchRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143A3FA4287814EC00CC57B7 /* MapSearchRecordVC.swift */; };
 		143C049E2891194E00D636E7 /* HotelInfomationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 143C049D2891194E00D636E7 /* HotelInfomationVC.xib */; };
-		1470E84F2885501E00C94325 /* ImageCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1470E84D2885501E00C94325 /* ImageCollectionVC.swift */; };
-		1470E8502885501E00C94325 /* ImageCollectionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1470E84E2885501E00C94325 /* ImageCollectionVC.xib */; };
 		14870979287C261500BE84E4 /* MapAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14870978287C261500BE84E4 /* MapAPI.swift */; };
+		14BD3B4D2898FA2200F1C864 /* StarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BD3B4B2898FA2200F1C864 /* StarCollectionViewCell.swift */; };
+		14BD3B4E2898FA2200F1C864 /* StarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14BD3B4C2898FA2200F1C864 /* StarCollectionViewCell.xib */; };
+		14BD3B512898FA3500F1C864 /* LandscopeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BD3B4F2898FA3500F1C864 /* LandscopeCollectionViewCell.swift */; };
+		14BD3B522898FA3500F1C864 /* LandscopeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14BD3B502898FA3500F1C864 /* LandscopeCollectionViewCell.xib */; };
 		14D6B8F3287FE50F00E2C08B /* MapSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D6B8F1287FE50F00E2C08B /* MapSearchVC.swift */; };
 		14D6B8F4287FE50F00E2C08B /* MapSearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14D6B8F2287FE50F00E2C08B /* MapSearchVC.xib */; };
 		14D6B8F8287FF57400E2C08B /* AnnotationClickVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D6B8F6287FF57400E2C08B /* AnnotationClickVC.swift */; };
@@ -41,14 +41,14 @@
 		141845DD2876DD3900FB6D8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		141845DF2876DD3900FB6D8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		141E7F82288138190042AA65 /* HotelInfomationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelInfomationVC.swift; sourceTree = "<group>"; };
-		141E7F8528814E410042AA65 /* starCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = starCollectionVC.swift; sourceTree = "<group>"; };
-		141E7F8628814E410042AA65 /* starCollectionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = starCollectionVC.xib; sourceTree = "<group>"; };
 		143A3F982878010200CC57B7 /* MapSearchRecordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapSearchRecordVC.xib; sourceTree = "<group>"; };
 		143A3FA4287814EC00CC57B7 /* MapSearchRecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchRecordVC.swift; sourceTree = "<group>"; };
 		143C049D2891194E00D636E7 /* HotelInfomationVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HotelInfomationVC.xib; sourceTree = "<group>"; };
-		1470E84D2885501E00C94325 /* ImageCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionVC.swift; sourceTree = "<group>"; };
-		1470E84E2885501E00C94325 /* ImageCollectionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionVC.xib; sourceTree = "<group>"; };
 		14870978287C261500BE84E4 /* MapAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAPI.swift; sourceTree = "<group>"; };
+		14BD3B4B2898FA2200F1C864 /* StarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarCollectionViewCell.swift; sourceTree = "<group>"; };
+		14BD3B4C2898FA2200F1C864 /* StarCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StarCollectionViewCell.xib; sourceTree = "<group>"; };
+		14BD3B4F2898FA3500F1C864 /* LandscopeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscopeCollectionViewCell.swift; sourceTree = "<group>"; };
+		14BD3B502898FA3500F1C864 /* LandscopeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LandscopeCollectionViewCell.xib; sourceTree = "<group>"; };
 		14D6B8F1287FE50F00E2C08B /* MapSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchVC.swift; sourceTree = "<group>"; };
 		14D6B8F2287FE50F00E2C08B /* MapSearchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapSearchVC.xib; sourceTree = "<group>"; };
 		14D6B8F6287FF57400E2C08B /* AnnotationClickVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationClickVC.swift; sourceTree = "<group>"; };
@@ -93,33 +93,21 @@
 		141845D02876DD3700FB6D8E /* project1 */ = {
 			isa = PBXGroup;
 			children = (
-				14F53FD6288939F4004A73FA /* ShowLandscope */,
-				1470E84C2885500000C94325 /* ImageCollectionVC */,
-				141E7F8428814E0C0042AA65 /* StarCollectionVC */,
-				14D6B8F5287FF54D00E2C08B /* AnnotationClick */,
+				14BD3B4A2898F9A200F1C864 /* API */,
 				143A3F9B2878147A00CC57B7 /* MapSearch */,
 				143A3F96287800A800CC57B7 /* MapSearchRecord */,
+				14D6B8F5287FF54D00E2C08B /* AnnotationClick */,
+				14BD3B472898F93800F1C864 /* HotelInfomation */,
+				14F53FD6288939F4004A73FA /* ShowLandscope */,
 				141845D12876DD3700FB6D8E /* AppDelegate.swift */,
 				141845D32876DD3700FB6D8E /* SceneDelegate.swift */,
-				14870978287C261500BE84E4 /* MapAPI.swift */,
 				141845D72876DD3700FB6D8E /* Main.storyboard */,
 				141845D52876DD3700FB6D8E /* ViewController.swift */,
-				141E7F82288138190042AA65 /* HotelInfomationVC.swift */,
-				143C049D2891194E00D636E7 /* HotelInfomationVC.xib */,
 				141845DA2876DD3900FB6D8E /* Assets.xcassets */,
 				141845DC2876DD3900FB6D8E /* LaunchScreen.storyboard */,
 				141845DF2876DD3900FB6D8E /* Info.plist */,
 			);
 			path = project1;
-			sourceTree = "<group>";
-		};
-		141E7F8428814E0C0042AA65 /* StarCollectionVC */ = {
-			isa = PBXGroup;
-			children = (
-				141E7F8628814E410042AA65 /* starCollectionVC.xib */,
-				141E7F8528814E410042AA65 /* starCollectionVC.swift */,
-			);
-			path = StarCollectionVC;
 			sourceTree = "<group>";
 		};
 		143A3F96287800A800CC57B7 /* MapSearchRecord */ = {
@@ -140,15 +128,6 @@
 			path = MapSearch;
 			sourceTree = "<group>";
 		};
-		1470E84C2885500000C94325 /* ImageCollectionVC */ = {
-			isa = PBXGroup;
-			children = (
-				1470E84E2885501E00C94325 /* ImageCollectionVC.xib */,
-				1470E84D2885501E00C94325 /* ImageCollectionVC.swift */,
-			);
-			path = ImageCollectionVC;
-			sourceTree = "<group>";
-		};
 		147BE1AD436A3809121F422C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +135,43 @@
 				672ED38CC9D36091DBC441FB /* Pods-project1.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		14BD3B472898F93800F1C864 /* HotelInfomation */ = {
+			isa = PBXGroup;
+			children = (
+				14BD3B482898F94100F1C864 /* StarCollectionView */,
+				14BD3B492898F95600F1C864 /* LandscopeCollectionView */,
+				143C049D2891194E00D636E7 /* HotelInfomationVC.xib */,
+				141E7F82288138190042AA65 /* HotelInfomationVC.swift */,
+			);
+			path = HotelInfomation;
+			sourceTree = "<group>";
+		};
+		14BD3B482898F94100F1C864 /* StarCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				14BD3B4C2898FA2200F1C864 /* StarCollectionViewCell.xib */,
+				14BD3B4B2898FA2200F1C864 /* StarCollectionViewCell.swift */,
+			);
+			path = StarCollectionView;
+			sourceTree = "<group>";
+		};
+		14BD3B492898F95600F1C864 /* LandscopeCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				14BD3B502898FA3500F1C864 /* LandscopeCollectionViewCell.xib */,
+				14BD3B4F2898FA3500F1C864 /* LandscopeCollectionViewCell.swift */,
+			);
+			path = LandscopeCollectionView;
+			sourceTree = "<group>";
+		};
+		14BD3B4A2898F9A200F1C864 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				14870978287C261500BE84E4 /* MapAPI.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		14D6B8F5287FF54D00E2C08B /* AnnotationClick */ = {
@@ -244,14 +260,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14BD3B522898FA3500F1C864 /* LandscopeCollectionViewCell.xib in Resources */,
 				14D6B8F9287FF57400E2C08B /* AnnotationClickVC.xib in Resources */,
 				143C049E2891194E00D636E7 /* HotelInfomationVC.xib in Resources */,
 				141845DE2876DD3900FB6D8E /* LaunchScreen.storyboard in Resources */,
 				141845DB2876DD3900FB6D8E /* Assets.xcassets in Resources */,
 				14D6B8F4287FE50F00E2C08B /* MapSearchVC.xib in Resources */,
-				141E7F8828814E410042AA65 /* starCollectionVC.xib in Resources */,
+				14BD3B4E2898FA2200F1C864 /* StarCollectionViewCell.xib in Resources */,
 				143A3F9A2878010200CC57B7 /* MapSearchRecordVC.xib in Resources */,
-				1470E8502885501E00C94325 /* ImageCollectionVC.xib in Resources */,
 				14F53FE228893C90004A73FA /* scrollingVC.xib in Resources */,
 				141845D92876DD3700FB6D8E /* Main.storyboard in Resources */,
 			);
@@ -310,10 +326,10 @@
 				141845D62876DD3700FB6D8E /* ViewController.swift in Sources */,
 				141845D22876DD3700FB6D8E /* AppDelegate.swift in Sources */,
 				14870979287C261500BE84E4 /* MapAPI.swift in Sources */,
-				141E7F8728814E410042AA65 /* starCollectionVC.swift in Sources */,
-				1470E84F2885501E00C94325 /* ImageCollectionVC.swift in Sources */,
 				14D6B8F8287FF57400E2C08B /* AnnotationClickVC.swift in Sources */,
 				141E7F83288138190042AA65 /* HotelInfomationVC.swift in Sources */,
+				14BD3B512898FA3500F1C864 /* LandscopeCollectionViewCell.swift in Sources */,
+				14BD3B4D2898FA2200F1C864 /* StarCollectionViewCell.swift in Sources */,
 				141845D42876DD3700FB6D8E /* SceneDelegate.swift in Sources */,
 				143A3FA5287814EC00CC57B7 /* MapSearchRecordVC.swift in Sources */,
 				14D6B8F3287FE50F00E2C08B /* MapSearchVC.swift in Sources */,
